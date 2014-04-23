@@ -22,9 +22,10 @@
 
 
 
-    FB.getLoginStatus(function (response) {
+FB.getLoginStatus(function (response) {
     if (response.status === 'connected') {
-		//Si el usuario esta logueado
+      //Si el usuario esta logueado correctamente
+      
       //OBTENER NOMBRE
         FB.api('/me', function (response) {
             $('#hola').html('Hola ' + response.name);
