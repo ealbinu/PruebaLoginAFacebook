@@ -15,21 +15,40 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="flogin.js"></script>
     <script>
-   
-      $(document).ready(function(){
-        $('#login').facebook_login({
+          $('#login').facebook_login({
           appId: '864657906883638',
           endpoint: '',
           onSuccess: function(data) {},
           onError: function(data) {}
-        });    
-   FB.login(function(response) {
-   if (response.authResponse) {
-     console.log('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       $('#login').html('Hola '+ response.name );
-     });
-   } 
+        });  
+      $(document).ready(function(){
+   
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token 
+    // and signed request each expire
+    
+    alert('conectado');
+    
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+    
+    FB.login(function(r){
+          if(r.authResponse){
+            FB.api('/me', function(r){
+              $('#login').html('Hola '+ r.name);
+            })
+          }
+        });
+  } else if (response.status === 'not_authorized') {
+    // the user is logged in to Facebook, 
+    // but has not authenticated your app
+  } else {
+    // the user isn't logged in to Facebook.
+  }
  });
         
       });
@@ -74,38 +93,6 @@
       </div>
     </div>
 
-  
-    <script>
-             
-        FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    // the user is logged in and has authenticated your
-    // app, and response.authResponse supplies
-    // the user's ID, a valid access token, a signed
-    // request, and the time the access token 
-    // and signed request each expire
-    
-    alert('conectado');
-    
-    var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-    
-    FB.login(function(r){
-          if(r.authResponse){
-            FB.api('/me', function(r){
-              $('#login').html('Hola '+ r.name);
-            })
-          }
-        });
-  } else if (response.status === 'not_authorized') {
-    // the user is logged in to Facebook, 
-    // but has not authenticated your app
-  } else {
-    // the user isn't logged in to Facebook.
-  }
- });
-      
-    </script>
   
   </body>
 </html>
