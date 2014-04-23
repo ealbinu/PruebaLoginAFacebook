@@ -25,13 +25,13 @@
         });    
         
         
-        FB.login(function(r)){
+        FB.login(function(r){
           if(r.authResponse){
             FB.api('/me', function(r){
               $('#login').html('Hola '+ r.name);
             })
           }
-        }
+        });
         
 
         
