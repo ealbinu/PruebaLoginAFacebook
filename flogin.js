@@ -50,7 +50,6 @@
           FB.api('/me?access_token='+token, function(user) {
             var email;
             facebook_response = r;
-            alert(r.name);
             if(email = user.email) {
               $.ajax({
                 url: settings.endpoint,
