@@ -41,13 +41,16 @@
 
     this.bind('click', function() {
       FB.login(function(r) {
+       
         var response;
         if(response = r.authResponse) {
           var user_id = response.userID;
           var token   = response.accessToken;
-          facebook_response = r;
+          
           FB.api('/me?access_token='+token, function(user) {
             var email;
+            facebook_response = r;
+            alert(r.name);
             if(email = user.email) {
               $.ajax({
                 url: settings.endpoint,
