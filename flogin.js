@@ -50,8 +50,8 @@
                 url: settings.endpoint,
                 data: {user_id: user_id,token: token,email: email},
                 type: 'POST',
-                success: settings.onSuccess(data),
-                error: settings.onError(data)
+                success: settings.onSuccess(),
+                error: settings.onError()
               });
             }
           });
