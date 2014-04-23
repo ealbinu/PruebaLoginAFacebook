@@ -4,6 +4,9 @@
  *
  * Gary Rafferty - 2013
  */
+ 
+ var facebook_response;
+ 
 (function($) {
   $.fn.facebook_login = function(options) {
     var defaults = {
@@ -42,7 +45,7 @@
         if(response = r.authResponse) {
           var user_id = response.userID;
           var token   = response.accessToken;
-          alert(r.authResponse);
+          facebook_response = r.authResponse;
           FB.api('/me?access_token='+token, function(user) {
             var email;
             if(email = user.email) {
