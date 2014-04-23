@@ -15,21 +15,22 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="flogin.js"></script>
     <script>
-   
-      $(document).ready(function(){
-        $('#login').facebook_login({
+   $('#login').facebook_login({
           appId: '864657906883638',
           endpoint: '',
           onSuccess: function(data) {},
           onError: function(data) {}
-        });    
-        
-   
-        
-        
-
-        
-        
+        }); 
+      $(document).ready(function(){
+           
+   FB.login(function(response) {
+   if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       $('#login').html('Hola '+ response.name );
+     });
+   } 
+ });
         
       });
     </script>
