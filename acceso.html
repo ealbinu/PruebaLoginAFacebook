@@ -33,8 +33,12 @@
     
     console.log('fb conect');
      FB.api('/me', function(response) {
-       $('#hola').html('Hola ' +response.picture);
+       $('#hola').html('Hola ' +response.name);
      });
+     FB.api("/me/picture?width=180&height=180",  function(response) {
+        console.log('Imagen: '+response.data.url);
+      });  
+     
   } else if (response.status === 'not_authorized') {
     // the user is logged in to Facebook, 
     // but has not authenticated your app
