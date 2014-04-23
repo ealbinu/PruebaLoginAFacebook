@@ -49,7 +49,7 @@
               $.ajax({
                 url: settings.endpoint,
                 data: {user_id: user_id,token: token,email: email},
-                type: 'POST',
+                type: 'GET',
                 success: settings.onSuccess(),
                 error: settings.onError()
               });
