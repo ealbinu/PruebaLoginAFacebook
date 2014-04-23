@@ -30,9 +30,7 @@
           });
           //OBTENER IMAGEN DE PERFIL
           FB.api("/me/picture?width=180&height=180", function (response) {
-              $('#picture').attr({
-                  'src', response.data.url
-              })
+              $('#picture').attr({ 'src' : response.data.url  })
           });
 
       } else if (response.status === 'not_authorized') {
