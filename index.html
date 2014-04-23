@@ -18,7 +18,12 @@
    
       $(document).ready(function(){
         $('#login').facebook_login({
-          appId: '864657906883638'
+          appId: '864657906883638',
+          endpoint: 'index.html',
+          onSuccess: function(data) {
+            alert('Logeado!');
+          },
+          onError: function(data) {}
         });    
       });
     </script>
