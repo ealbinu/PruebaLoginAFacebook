@@ -1,6 +1,7 @@
 <!Doctype html>
 <html>
   <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   </head>
   <body>
   
@@ -25,8 +26,8 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
        
-       
-       FB.getLoginStatus(function(response) {
+       $(document).ready(function(){
+         FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     // the user is logged in and has authenticated your
     // app, and response.authResponse supplies
@@ -42,6 +43,8 @@
   } else {
     // the user isn't logged in to Facebook.
   }
+       });
+       
  });
        
        
