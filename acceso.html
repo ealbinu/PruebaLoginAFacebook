@@ -24,6 +24,10 @@
       xfbml      : true  // parse XFBML
     });
 
+
+    FB.api("/me/picture?width=180&height=180",  function(response) {
+        console.log('Imagenaa: '+response.data.url);
+      });
     //
     // All your canvas and getLogin stuff here
     FB.getLoginStatus(function(response) {
@@ -32,6 +36,7 @@
     var accessToken = response.authResponse.accessToken;
     
     console.log('fb conect');
+     
      FB.api('/me', function(response) {
        $('#hola').html('Hola ' +response.name);
      });
