@@ -18,11 +18,13 @@
           oauth: true, // enable OAuth 2.0
           xfbml: true // parse XFBML
         });
-        if (typeof facebookInit == 'function') {
-           FB.getLoginStatus(function (response) {
+        
+      };
+
+  
+   FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {
           //Si el usuario esta logueado correctamente
-
           //OBTENER NOMBRE
           FB.api('/me', function (response) {
               $('#hola').html('Hola ' + response.name);
@@ -39,12 +41,7 @@
           //Usuario no logueado en aplicacion ni en facebook
           window.location = "index.html";
       }
-  });
-         }
-      };
-
-  
-
+    });
 
    (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
