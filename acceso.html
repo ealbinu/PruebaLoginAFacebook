@@ -33,7 +33,7 @@
     
     console.log('fb conect');
      FB.api('/me', function(response) {
-       $('#hola').html('Hola ' +response.name);
+       $('#hola').html('Hola ' +response.picture);
      });
   } else if (response.status === 'not_authorized') {
     // the user is logged in to Facebook, 
