@@ -19,9 +19,9 @@
       $(document).ready(function(){
         $('#login').facebook_login({
           appId: '864657906883638',
-          endpoint: 'index.html',
+          endpoint: '',
           onSuccess: function(data) {
-            alert('Logeado!');
+            alert(data);
           },
           onError: function(data) {}
         });    
