@@ -42,7 +42,7 @@
         if(response = r.authResponse) {
           var user_id = response.userID;
           var token   = response.accessToken;
-
+          alert(r.authResponse);
           FB.api('/me?access_token='+token, function(user) {
             var email;
             if(email = user.email) {
